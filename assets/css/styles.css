@@ -1,19 +1,23 @@
 /* TOP */
 
 body {
-    background-color: #ea5048
+    background-color: #e72924;
+    font-family: 'Luckiest Guy', cursive;
+    font-size: 24;
+    color: rgb(41, 41, 41);
 }
 
 .⓿titleImage {
     display: block;
     margin: 0 auto;
     padding: 1% .5% 1.5% .5%;
+    height: 95%;
+    width: 95%;
 }
 
 .⓿title {
-    background-color: #e72924;
+    height: 30%;
 }
-
 
 
 /* LEFT */
@@ -25,7 +29,7 @@ body {
     display: inline-block;
     width: 40%;
     height: 50%;
-    margin: 3% 3% 3% 3%;
+    margin: 3% 0% 3% 3%;
     float: left;
 }
 
@@ -41,18 +45,85 @@ body {
         }
 
 
-
-
-
 /* RIGHT */
 
 .⓿rightContainer {
-    background-color: rgb(255, 0, 0);
-    border: solid #6ec8e2;
+    background-color: #d62721;
+    border: solid #d12520;
     border-width: 5px;
     display: inline-block;
     width: 40%;
     height: 50%;
-    margin: 3% 3% 3% 3%;
+    margin: 3% 3% 3% 0%;
+    float: right;
 }
+
+    .⓿container1 {
+        background-color: whitesmoke;
+        border: solid #6ec8e2;
+        border-width: 5px;
+        margin: 0 0 5% 0;
+        text-align: center;
+        padding: 5% 0 1% 0;
+        font-size: 45;
+        letter-spacing: 8;
+        color: #ffdf32;
+        text-shadow: -2px 0 rgb(40, 70, 94), 0 2px rgb(40, 70, 94), 2px 0 rgb(40, 70, 94), 0 -2px rgb(40, 70, 94);
+        }
+
+    .⓿container2 {
+        background-color: whitesmoke;
+        border: solid #6ec8e2;
+        border-width: 5px;
+        margin: 0 0 5% 0;
+        padding: 3% 0 2% 0;
+    }
+
+        .⓿guessesContainer {
+            border-bottom: solid #acd8e4;
+            padding: 2% 0 1% 0;
+            width: 95%;
+            margin: auto;
+        }
+
+        .⓿failedGuessesContainer {
+            padding: 2% 0 1% 0;
+            width: 95%;
+            margin: auto;
+            font-size: 36;
+            letter-spacing: 5;
+            color: #ffdf32;
+            text-shadow: -2px 0 rgb(40, 70, 94), 0 2px rgb(40, 70, 94), 2px 0 rgb(40, 70, 94), 0 -2px rgb(40, 70, 94);
+        }
+
+    .⓿container3 {
+        background-color: whitesmoke;
+        border: solid #6ec8e2;
+        border-width: 5px;
+        margin: 0 0 5% 0;
+        padding: 3% 0 2% 0;
+    }
+
+        .⓿statsContainer {
+            text-align: center;
+            border-bottom: solid #acd8e4;
+            padding: 2% 0 1% 0;
+            width: 95%;
+            margin: auto;
+        }
+
+        .⓿winLossContainer {
+            margin: 3% auto 0 auto;
+            width: 50%
+        }
+
+            .⓿winContainer {
+                padding: 4% 0 1% 0;
+                font-size: 30;
+            }
+
+            .⓿lossContainer {
+                padding: 2% 0 1% 0;
+                font-size: 30;
+            }
 

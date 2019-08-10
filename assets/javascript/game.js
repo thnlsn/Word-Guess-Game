@@ -14,10 +14,10 @@ var wordBank = [
     "Gyrados",
     "Kabutops",
     "Victreebel",
+    "Golem",
     "Machamp",
     "Nidoking",
-    "Snorlax",
-    "Golem"
+    "Snorlax"
 ];
 
 //PICK WORD FUNCTION

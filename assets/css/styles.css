@@ -132,7 +132,7 @@ body {
                 font-size: 30;
             }
 
-#⓿counter {
+.⓿counter {
     color: #ffdf32;
     text-shadow: -2px 0 rgb(40, 70, 94), 0 2px rgb(40, 70, 94), 2px 0 rgb(40, 70, 94), 0 -2px rgb(40, 70, 94);
 }

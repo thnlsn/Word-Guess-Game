@@ -1,41 +1,6 @@
 
 
-//███████████████████████████████████████████████████████████
-
-//keyThatWasPressed tells us WHAT key was pressed, and true or false depending on if it is a letter or not.
-
-document.addEventListener('keydown', keyThatWasPressed);
-
-function keyThatWasPressed(event) {
-    var key = event.key;
-    console.log(event.key);
-    var regEx = /^[a-z]{1}$/i;
-    var validKey = regEx.test(key);
-    console.log(validKey);
-
-
-    //This begins pushing the key pressed into an array as a string to be showed on html
-    if (!firstTime && validKey) {
-   /*      if () */
-        //Adds the key pressed to guesses box(array)
-        guesses.push(String(event.key));
-        document.getElementById("failedGuesses").innerHTML = guesses.join("");
-    }
-
-    //This initiates the randomizer when ANY key is pressed, only if its the first key press of the game.
-    if (firstTime && event.key) {
-        pickWord();
-        firstTime = false;
-        document.getElementById('image').src="./assets/images/titleDuring.png";
-    }
-
-    var keyToString = String(event.key);
-    
-    console.log(correctWord.indexOf(keyToString));
-}
-
-//███████████████████████████████████████████████████████████
-
+//to determine if its the first keypress of the game
 var firstTime = true;
 
 //if games <0, change ./assets/images/titleContinue.png to ./assets/images/titleRestart.png
@@ -48,13 +13,13 @@ var losses = 0;
 var remainingGuesses = 10;
 var failedGuesses = [];
 
-//all guesses --MAKE ONLY FAILED ONES
+//all guesses -- MAKE ONLY FAILED ONES !!!!!!!!
 var guesses = [];
 
-//current word being guessed (initially in underscores)
+//current word being guessed (initially in underscores) !!!!!!!
 var currentWord = "";
 
-//the word currently being guessed
+//the word currently being guessed !!!!!!!!
 var correctWord = "";
 
 //to display stats to html
@@ -69,6 +34,71 @@ document.getElementById("failedGuesses").innerHTML = guesses;
     remainingGuesses = q;
 } */
 
+//███████████████████████████████████████████████████████████
+
+//keyThatWasPressed tells us WHAT key was pressed, and true or false depending on if it is a letter or not.
+
+document.addEventListener('keydown', keyThatWasPressed);
+
+function keyThatWasPressed(event) {
+    var key = event.key;
+    console.log(event.key);
+    var regEx = /^[a-z]{1}$/i;
+    var validKey = regEx.test(key);
+    console.log(validKey);
+
+
+    var isKeyInCorrectWord = (correctWord.indexOf(String(event.key)));
+
+
+
+
+    for(var i=0; i<currentWord.length; i++) {
+        if (correctWord[i] == "s") currentWord.push(i);
+    }
+
+
+    //IF KEY IS PRESSED, AND IT IS NOT THE FIRST TIME, AND IT IS A LETTER, CONTINUE...
+    if (!firstTime && validKey) {
+        //IF LETTER IS PRESENT IN THE CORRECT WORD
+        if (isKeyInCorrectWord !== -1) {
+            console.log("THIS LETTER IS IN THE WORD!")
+            //FIGURE OUT WHERE THAT LETTER IS IN THE CORRECT WORD AND REPLACE THAT SAME SLOT IN THE UNDERSCORE STRING
+            for(var i=0; i<currentWord.length; i++) {
+                if (correctWord[i] == String(event.key))
+                    correctLetter = currentWord.concat(String(event.key))
+                    document.getElementById("currentWord").innerHTML = correctLetter;
+            }
+
+
+
+
+
+
+
+
+        }
+        // else if (KEY IS ALREADY IN GUESSES ARRAY)
+            //DO NOTHING
+
+        else {
+            guesses.push(String(event.key));
+            document.getElementById("failedGuesses").innerHTML = guesses.join("");
+        }
+    }
+
+    //This initiates the randomizer when ANY key is pressed, only if its the first key press.
+    if (firstTime && event.key) {
+        pickWord();
+        firstTime = false;
+        document.getElementById('image').src="./assets/images/titleDuring.png";
+    }
+}
+
+//███████████████████████████████████████████████████████████
+
+
+
 
 
 
@@ -80,16 +110,16 @@ document.getElementById("failedGuesses").innerHTML = guesses;
 var pickWord = function() {
 
   var wordBank = [
-    "Charizard",
-    "Gengar",
-    "Alakazam",
-    "Gyrados",
-    "Kabutops",
-    "Victreebel",
-    "Golem",
-    "Machamp",
-    "Nidoking",
-    "Snorlax"
+    "charizard",
+    "gengar",
+    "alakazam",
+    "gyrados",
+    "kabutops",
+    "victreebel",
+    "golem",
+    "machamp",
+    "nidoking",
+    "snorlax"
   ];
 
   var wordNumber = Math.floor(Math.random() * 10);
@@ -100,7 +130,6 @@ var pickWord = function() {
   var letters = wordBank[wordNumber].split('');
   var wordLength = wordBank[wordNumber].length;
   console.log(wordLength);
- 
 
   for (i = 0; i < wordLength; i++) {
     oneUnderScore = "_";
@@ -108,17 +137,8 @@ var pickWord = function() {
     document.getElementById("currentWord").innerHTML = currentWord;
   };
 
-
-
-
-
   return letters;
 };
-
-
-var displayUnderscores = function pickWord() {
-    console.log(pickWord());
-  }
 
 
 

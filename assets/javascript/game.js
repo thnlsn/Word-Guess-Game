@@ -34,6 +34,9 @@ document.getElementById("failedGuesses").innerHTML = guesses;
     remainingGuesses = q;
 } */
 
+
+
+
 //███████████████████████████████████████████████████████████
 
 //keyThatWasPressed tells us WHAT key was pressed, and true or false depending on if it is a letter or not.
@@ -74,12 +77,14 @@ function keyThatWasPressed(event) {
 
 
         }
-        // else if (KEY IS ALREADY IN GUESSES ARRAY)
+        else if (guesses.includes(String(event.key))) {
             //DO NOTHING
+        }
 
         else {
             guesses.push(String(event.key));
             document.getElementById("failedGuesses").innerHTML = guesses.join("");
+
         }
     }
 
@@ -191,7 +196,18 @@ function processGuess(guess) {
 
 
 
+/* I know what I have to do, just not how to make it happen
 
+
+
+
+
+
+
+
+
+
+*/
 
 
 

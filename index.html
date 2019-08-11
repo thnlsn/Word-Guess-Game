@@ -12,7 +12,7 @@
 
         <!-- TITLE -->
         <div class="⓿title">
-            <img class="⓿titleImage" src="./assets/images/titleContinue.png" alt="titleContinue">
+            <img id="image" class="⓿titleImage" src="./assets/images/titleContinue.png" alt="titleContinue">
         </div>
 
         <!-- IMAGE (LEFT SIDE )-->
@@ -29,16 +29,16 @@
 
             <!-- CURRENT WORD -->
             <div class="⓿container1">
-                <p>VICTREEBEL</p>
+                <p><span id="currentWord"></span></p>
             </div>
 
             <!-- GUESSES -->
             <div class="⓿container2">
                 <div class="⓿guessesContainer">
-                    <p>Guesses (<span id="remainingGuesses">1</span> remaining)</p>
+                    <p>Guesses (<span id="remainingGuesses"></span> remaining)</p>
                 </div>
                 <div class="⓿failedGuessesContainer">
-                    <p><span id="failedGuesses">A D H I K B J P G F</span></p>
+                    <p><span id="failedGuesses"></span></p>
                 </div>
             </div>
 

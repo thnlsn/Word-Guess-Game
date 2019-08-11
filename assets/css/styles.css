@@ -63,13 +63,17 @@ body {
         border: solid #6ec8e2;
         border-width: 5px;
         margin: 0 0 5% 0;
+        min-height: 15%;
         text-align: center;
         padding: 5% 0 1% 0;
-        font-size: 45;
+        }
+
+    #currentWord {
+        font-size: 40;
         letter-spacing: 8;
         color: #ffdf32;
         text-shadow: -2px 0 rgb(40, 70, 94), 0 2px rgb(40, 70, 94), 2px 0 rgb(40, 70, 94), 0 -2px rgb(40, 70, 94);
-        }
+    }
 
     .⓿container2 {
         background-color: whitesmoke;
@@ -90,8 +94,9 @@ body {
             padding: 2% 0 1% 0;
             width: 95%;
             margin: auto;
+            min-height: 10%;
             font-size: 36;
-            letter-spacing: 5;
+            letter-spacing: 10;
             color: #ffdf32;
             text-shadow: -2px 0 rgb(40, 70, 94), 0 2px rgb(40, 70, 94), 2px 0 rgb(40, 70, 94), 0 -2px rgb(40, 70, 94);
         }
@@ -126,4 +131,9 @@ body {
                 padding: 2% 0 1% 0;
                 font-size: 30;
             }
+
+#⓿counter {
+    color: #ffdf32;
+    text-shadow: -2px 0 rgb(40, 70, 94), 0 2px rgb(40, 70, 94), 2px 0 rgb(40, 70, 94), 0 -2px rgb(40, 70, 94);
+}
 

@@ -54,6 +54,9 @@ function keyThatWasPressed(event) {
 
 
 
+
+
+
     //IF KEY IS PRESSED, AND IT IS NOT THE FIRST TIME, AND IT IS A LETTER, CONTINUE...
     if (!firstTime && validKey) {
         //IF LETTER IS PRESENT IN THE CORRECT WORD
@@ -129,7 +132,8 @@ var pickWord = function() {
 
   for (i = 0; i < wordLength; i++) {
     oneUnderScore = "_";
-    currentWord = currentWord.concat(oneUnderScore)
+    currentWordString = currentWord.concat(oneUnderScore);
+    var currentWord = currentWordString.split('');
     document.getElementById("currentWord").innerHTML = currentWord;
   };
 
@@ -202,3 +206,44 @@ function processGuess(guess) {
 
 
 
+/* var correctWord = a ["a", "b", "a", ""] */
+
+
+/* document.addEventListener('keydown', testFunc);
+
+function testFunc(event) {
+  // This fucntion is being passed into the event listener.
+  // The 'event' parameter is provided by the "addEventListener" function which contains the event information (ex: in the instance of a keypress, it has the details of the keypress)
+
+  // Storing the value of the key that was pressed (Ex: a, b, g);
+  var key = event.key;
+
+  //Regular expression to validate if the keypress was a letter
+  var regEx = /^[a-z]{1}$/i;
+  var validKey = regEx.test(key);
+
+  if (validKey) {
+    // Code to replace the underscore with the letter that was guessed
+    processGuess(key, letters);
+  } else {
+    // Code to put the letter in the box of used letters
+  }
+
+  // Replace an underscore
+  // OR put letter in box of used letters
+}
+
+function addEventListener(event) {
+  if (event = 'keydown') {
+    // Take the event and process all the information about it and then call the function
+    function(event);
+  }
+} */
+
+
+
+/* var startGame = function() {
+  return pickWord();
+}
+
+var letters = startGame(); */

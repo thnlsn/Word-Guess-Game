@@ -9,18 +9,19 @@ var games = 0;
 var wins = 0;
 var losses = 0;
 
-//if remainingGuesses =0, run function to enable a restart of game with any keypress
-var remainingGuesses = 10;
-var failedGuesses = [];
 
 //all guesses -- MAKE ONLY FAILED ONES !!!!!!!!
 var guesses = [];
 
+//if remainingGuesses =0, run function to enable a restart of game with any keypress
+var remainingGuesses = 10 - guesses.length;
+var failedGuesses = [];
+
 //current word being guessed (initially in underscores) !!!!!!!
-var currentWord = "";
+var currentWord = [];
 
 //the word currently being guessed !!!!!!!!
-var correctWord = "";
+var correctWord = [];
 
 //to display stats to html
 document.getElementById("winCount").innerHTML = wins;
@@ -29,10 +30,6 @@ document.getElementById("remainingGuesses").innerHTML = remainingGuesses;
 document.getElementById("failedGuesses").innerHTML = guesses;
 
 
-//CODE TO DISPLAY CORRECT CURRENT AMOUNT OF REMAINING ATTEMPTS
-/* for (q = remainingGuesses; q > 0; q--) {
-    remainingGuesses = q;
-} */
 
 
 
@@ -51,7 +48,9 @@ function keyThatWasPressed(event) {
     console.log(validKey);
 
 
+    
     var isKeyInCorrectWord = (correctWord.indexOf(String(event.key)));
+    console.log(isKeyInCorrectWord)
 
 
 
@@ -61,30 +60,27 @@ function keyThatWasPressed(event) {
     if (!firstTime && validKey) {
         //IF LETTER IS PRESENT IN THE CORRECT WORD
         if (isKeyInCorrectWord !== -1) {
+
             console.log("THIS LETTER IS IN THE WORD!")
             //FIGURE OUT WHERE THAT LETTER IS IN THE CORRECT WORD AND REPLACE THAT SAME SLOT IN THE UNDERSCORE STRING
             for(var i=0; i<currentWord.length; i++) {
                 if (correctWord[i] == String(event.key))
-                    var correctLetter = currentWord.concat(String(event.key))
-                    document.getElementById("currentWord").innerHTML = correctLetter;
+                    currentWord.push(String(event.key));
+                    document.getElementById("currentWord").innerHTML = currentWord.join("");
+
+                    
             }
 
-
-
-
-
-
-
-
         }
+        //checks if guessed letter has already been guessed, if true, then noting happens
         else if (guesses.includes(String(event.key))) {
             //DO NOTHING
         }
 
         else {
+            console.log("THIS LETTER IS NOT IN THE WORD!")
             guesses.push(String(event.key));
             document.getElementById("failedGuesses").innerHTML = guesses.join("");
-
         }
     }
 
@@ -93,7 +89,15 @@ function keyThatWasPressed(event) {
         pickWord();
         firstTime = false;
         document.getElementById('image').src="./assets/images/titleDuring.png";
+
+        //THIS IS SUPPOSED TO INCREASE LOSSES IF THE ARRAY LENGTH OF GUESSES BECOMES 10... IDK WHY IT DOES NOT WORK
+        //I WANT TO DO THE SAME WITH WINS IF I CAN FIGURE IT OUT.
+          if (guesses.length = 10) {
+            losses++
+          }
     }
+
+    
 }
 
 //███████████████████████████████████████████████████████████
@@ -133,9 +137,8 @@ var pickWord = function() {
   console.log(wordLength);
 
   for (i = 0; i < wordLength; i++) {
-    oneUnderScore = "_";
-    currentWord = currentWord.concat(oneUnderScore)
-    document.getElementById("currentWord").innerHTML = currentWord;
+    currentWord.push("_");
+    document.getElementById("currentWord").innerHTML = currentWord.join("")
   };
 
   return letters;
